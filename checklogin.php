@@ -22,7 +22,7 @@
 		//1.weak password + делегировали ответственности администратору сервера в переменные окружения
 		//2.нарущение принципа наименьших привилегий
 		//3.секрет в коде
-		//4.Уязвимость для sql + //user: user1' OR (1=1) --
+		//4.Уязвимость для sql + //user: user1' OR (1=1) --bbbbbbbbbbbb
 
 		//$sql = "SELECT * FROM users WHERE username='$user' AND pwdhash='$hash'";
 		//$sql = "SELECT * FROM users WHERE login='$user' AND pwdhash='$hash'";
@@ -33,7 +33,7 @@
 		//Извлекаем из среды переменных в системе.
 		$db_server=getenv('cyb3_db_server');
 		$db_user=getenv('cyb3_db_user');
-		$db_pwd=trim(getenv('cyb3_db_spwd'));
+		$db_pwd=trim(getenv('cyb3_db_pwd'));
 		$conn = mysqli_connect($db_server,$db_user,$db_pwd,"cyb3");
 		
 		//$result = mysqli_query($conn, $sql);
