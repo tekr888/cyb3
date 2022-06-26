@@ -15,17 +15,17 @@
 	<body>
 		<a href = "index1.html">Домой</a><br/>
 	<?php
-        if (empty($user) or empty($useremail) or empty($userlogin) or empty($pwd))
-        {
-        exit ("Введена не вся информация! Необходимо заполнить все поля!");
-        }
-
+                
 		$user = $_REQUEST["txtusername"];
         $useremail = $_REQUEST["txtuseremail"];
         $userlogin = $_REQUEST["txtuserlogin"];
 		$pwd = $_REQUEST["pwd"];
 		$hash = hash('sha256', $pwd);
-   
+        if (empty($user) or empty($useremail) or empty($userlogin) or empty($pwd))
+        {
+        exit ("Введена не вся информация! Необходимо заполнить все поля!");
+        }
+        
 	    $sql="INSERT INTO users (username, email, login, pwdhash) VALUES (?, ?, ?, ?)";
 		$db_server=getenv('cyb3_db_server');
 		$db_user=getenv('cyb3_db_user');
