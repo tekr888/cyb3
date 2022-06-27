@@ -13,7 +13,8 @@
 	</style>
 		</head>
 	<body>
-		<a href = "index1.html">Домой</a><br/>
+        <h1>Пользователь зарегистрирован. Вы будете перенаправленны на страницу входа.</h1>
+    <meta http-equiv="refresh" content="5; url=login.php"/>
 	<?php
                 
 		$user = $_REQUEST["txtusername"];
@@ -36,7 +37,8 @@
 		mysqli_stmt_bind_param($stat,"ssss",$user,$useremail,$userlogin,$hash);
 		mysqli_stmt_execute($stat);
 		$result=mysqli_stmt_get_result($stat);
-
+        mysqli_close($conn);
+        
 		//$num_rows = mysqli_num_rows($result);
 		//mysqli_close($conn);
 		
@@ -49,6 +51,5 @@
 			//}
 			
 	?>
-
-	</body>
+    </body>
 </html>
